@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open Survey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Raipur Survey</h2>
+
+<p>Click the button below to start the survey.</p>
+
+<button onclick="startSurvey()">
+    Start Survey
+</button>
+
+<script>
+
+function startSurvey() {
+
+    const FORM_URL =
+    "https://docs.google.com/forms/d/e/1FAIpQLSdyG5sREGG5x5TGM8ZL9x_8dGH9cwRLi70rcgqAZ89I49eBJA/viewform?usp=pp_url";
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position) {
+
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+
+            const url =
+                FORM_URL +
+                "&entry.59797415=" + encodeURIComponent(lat) +
+                "&entry.530060942=" + encodeURIComponent(lng);
+
+            window.location.href = url;
+        },
+
+        function(error) {
+
+            alert(
+                "Location permission denied. The survey will open without GPS."
+            );
+
+            window.location.href = FORM_URL;
+        },
+
+        {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+        }
+
+    );
+}
+
+</script>
+
+</body>
+</html>
