@@ -35,7 +35,6 @@ function startSurvey() {
 
     const FORM_URL =
     "https://docs.google.com/forms/d/e/1FAIpQLSdyG5sREGG5x5TGM8ZL9x_8dGH9cwRLi70rcgqAZ89I49eBJA/viewform?usp=pp_url";
-
     navigator.geolocation.getCurrentPosition(
 
         function(position) {
@@ -45,8 +44,8 @@ function startSurvey() {
 
             const url =
                 FORM_URL +
-                "&entry.59797415=" + encodeURIComponent(lat) +
-                "&entry.530060942=" + encodeURIComponent(lng);
+                "&entry.894949836=" + encodeURIComponent(lat) +
+                "&entry.1426204507=" + encodeURIComponent(lng);
 
             alert(url);
             window.location.href = url;
